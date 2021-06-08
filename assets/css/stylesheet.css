@@ -1,0 +1,33 @@
+.nav {
+    height: 170px;
+    background-color: rgb(152, 181, 221);
+    
+}
+
+.header {
+    font-family: 'Shrikhand', cursive;
+    font-size: 50px;
+    color: white;
+    padding: 50px 0 0 50px;
+    z-index: 2;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(19, 36, 66);
+}
+
+.clouds {
+    margin: 20px 0 0 -40px;
+    height: 120px;
+    width: 120px;
+    z-index: 1;
+}
+
+.left-column {
+    background-color: rgb(124, 145, 150);
+    text-align: center;
+    height: 1000px;
+    border-radius: 5px;
+}
+.search-header {
+    padding-top: 50px;
+    text-align: center;
+}
