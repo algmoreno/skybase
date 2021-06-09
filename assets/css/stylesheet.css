@@ -59,12 +59,22 @@
     border-right: 2px solid black;
     border-radius: 8px;
     border-top: 2px solid black;
+    text-align: center;
 }
 
 .results-head {
+    flex-wrap: wrap; 
     text-align: center;
     padding-top: 50px; 
-    
+}
+
+.results-box {
+    background-color: black;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    width: 800px;
+    height: 550px;
+    border-radius: 8px;
 }
 
 .right-column {
