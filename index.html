@@ -9,9 +9,10 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Lato&family=Shrikhand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel = "stylesheet" href = "assets/css/stylesheet.css"> 
 </head>
 <body>
@@ -19,18 +20,19 @@
         <h1 class = "header">SkyView</h1>
         <img class = "clouds" src="assets/images/clouds.png" alt= "clouds and sky"> 
     </nav>
-    <content class = "content">
+    <div class = "content">
         <div class="row">
             <div class="col-3 left-column">
                 <h2 class = "search-header">City Select</h2>
-                <input class = "search-field" placeholder = "Search city"></input>
+                <input class = "search-field" placeholder = "Search a city . . ."></input>
                 <button class = "search-btn">Go!</button>
             </div>
-            <div class="col-9">col-10</div>
-            
-          </div>
-            
-    </content>
+            <div class="col-7 results-column">
+                <h2 class = "results-head">Results:</h2>
+            </div>
+            <div class="col-2 right-column"></div>
+          </div>    
+    </div>
 <script src = "./assets/js/script.js"></script>
 </body>
 </html>

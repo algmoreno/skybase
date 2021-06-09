@@ -1,13 +1,14 @@
 .nav {
     height: 170px;
-    background-color: rgb(152, 181, 221);
+    background-color: rgb(183, 213, 255);
+    border-bottom: 2px solid black;
     
 }
 
 .header {
     font-family: 'Shrikhand', cursive;
     font-size: 50px;
-    color: white;
+    color: rgb(250, 205, 83);
     padding: 50px 0 0 50px;
     z-index: 2;
     -webkit-text-stroke-width: 2px;
@@ -21,13 +22,54 @@
     z-index: 1;
 }
 
+.content {
+    background-color: black;
+    height: 100%;
+    border-bottom: 4px solid black;
+}
+
 .left-column {
-    background-color: rgb(124, 145, 150);
+    background-image: url("../images/pexels-brayden-law-2096700.jpg"); 
     text-align: center;
-    height: 1000px;
-    border-radius: 5px;
+    height: 700px;
+    border-radius: 8px;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
 }
 .search-header {
     padding-top: 50px;
     text-align: center;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+.search-field {
+    border-radius: 5px;
+    
+}
+
+.search-btn {
+    border-radius: 5px; 
+    background-color: rgb(183, 213, 255);
+}
+
+.results-column {
+    background-color: rgb(255, 242, 223);
+    border-left: 2px solid black; 
+    border-right: 2px solid black;
+    border-radius: 8px;
+    border-top: 2px solid black;
+}
+
+.results-head {
+    text-align: center;
+    padding-top: 50px; 
+    
+}
+
+.right-column {
+    background-color: rgb(183, 213, 255);
+    border-left: 2px solid black; 
+    border-top: 2px solid black;
+    border-radius: 8px;
 }
