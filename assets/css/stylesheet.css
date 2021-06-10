@@ -8,7 +8,7 @@
 .header {
     font-family: 'Shrikhand', cursive;
     font-size: 60px;
-    color: rgb(250, 239, 83);
+    color: rgb(255, 239, 148);
     padding: 50px 0 0 50px;
     z-index: 2;
     -webkit-text-stroke-width: 2px;
@@ -43,14 +43,21 @@
     font-family: 'Lato', sans-serif;
 }
 
-.search-field {
+.search-box {
     border-radius: 5px;
-    
+}
+
+.search-field:hover {
+    transform: scale(1.01);
 }
 
 .search-btn {
     border-radius: 5px; 
     background-color: rgb(183, 213, 255);
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
 }
 
 .results-column {
