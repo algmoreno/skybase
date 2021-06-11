@@ -106,10 +106,33 @@
     text-align: center;
 }
 
-.weather-display {
+.humidity-text, 
+.wind-text,
+.temp-text {
     font-family: inherit;
     text-align: center;
     color: black;
+}
+
+.uv-box-fav{
+    height: 50px;
+    width: 200px; 
+    background-color: rgb(70, 221, 70); 
+
+}
+
+.uv-box-mod{
+    height: 50px;
+    width: 200px; 
+    background-color: rgb(250, 166, 56); 
+
+}
+
+.uv-box-sev{
+    height: 50px;
+    width: 200px; 
+    background-color: rgb(250, 56, 56); 
+
 }
 
 .right-column {
