@@ -168,17 +168,19 @@
     font-family: 'Lato', sans-serif; 
     font-size: 18px;
     color: white; 
+
 }
 
 .forecast-box {
-    display: flex; 
+    display: inline-flexbox; 
     width: 100%; 
     color:rgb(19, 36, 66); 
     margin-top: 70px;
+    overflow-wrap: anywhere;
 }
 
 .daily-box {
-    display: flex;
+    display:flex;
     width: 25%;
     height: 120px; 
     margin: 0 5px; 
@@ -187,6 +189,7 @@
     border-color: rgb(0, 120, 175); 
     border-width: 6px;
     box-shadow: 6px 5px 5px rgb(87, 87, 87);
+    overflow: auto;
 }
 
 .small-weather-icon {
@@ -194,13 +197,31 @@
     margin: 5px 0 0 5px;
     height: 40px;
     width: 40px;
+    opacity: 80%;
+    z-index: 999; 
 }
 
 .forecast-text {
+    font-family: 'Lato', sans-serif;
     flex-wrap: wrap;
     padding: 8px 0 0 0;
-    margin-bottom: -5px;
+    margin: -7px 3px -5px 3px;
     font-size: 14px;
+    z-index: 1;
+}
+
+.forecast-date {
+
+    font-family: 'Lato', sans-serif;
+    color: rgb(0, 120, 175); 
+    margin-top: -70px; 
+}
+
+.daily-sub-box {
+    height: 100%; 
+    width: 100%;
+    margin-top: -15px; 
+    z-index: 1; 
 }
 
 .right-column {

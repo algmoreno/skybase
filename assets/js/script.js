@@ -120,7 +120,7 @@ var displayWeather = function(data) {
     forecastDiv.className = "forecast-box";
     resultsContainer.append(forecastDiv);
     
-    for (var i = 0; i < 5; i++) {
+    for (var i = 1; i < 6; i++) {
 
 
         if (data.daily[i].weather[0].main === "Clear") {
@@ -153,7 +153,7 @@ var displayWeather = function(data) {
             dailyDiv.append(rainyEl); 
         }
     
-        else if (data.daily[i].weather[0].main === "Mist") {
+        else if (data.daily[i].weather[1].main === "Mist") {
             dailyDiv = document.createElement("div");
             dailyDiv.className = "daily-box";
 
@@ -163,6 +163,16 @@ var displayWeather = function(data) {
             dailyDiv.append(mistyEl); 
         }
 
+        var dateEl = data.daily[i].dt 
+        
+        var fullDate = new Date(dateEl * 1000);
+        var myDay = fullDate.toLocaleString("en-US", {day: "numeric"}); 
+        var myMonth = fullDate.toLocaleString("en-US", {month: "numeric"}); 
+        
+        var forecastDate = document.createElement("h3");
+        forecastDate.textContent = myMonth + "/" + myDay; 
+        forecastDate.className = "forecast-date"; 
+        forecastDiv.append(forecastDate); 
         
 
         var highEl = document.createElement("h3");
@@ -171,20 +181,26 @@ var displayWeather = function(data) {
     
         var lowEl = document.createElement("h3");
         lowEl.innerHTML = "Low: " + data.daily[i].temp.min + "°F";
-
         lowEl.className = "forecast-text";
 
-        var dailyHumEl= document.createElement("h3");
-        dailyHumEl = "Wind Speed: " + data.daily[i].wind_speed + " mph"
-        dailyHumEl.className = "forecast-text";
+        var dailyWindEl= document.createElement("h3");
+        dailyWindEl.textContent = "Wind Speed: " + data.daily[i].wind_speed + " mph"; 
+        dailyWindEl.className = "forecast-text"; 
 
-        
-        dailyDiv.append(highEl);
-        dailyDiv.append(lowEl); 
-        dailyDiv.append(dailyHumEl)
+        var dailyHumEl= document.createElement("h3");
+        dailyHumEl.textContent = "Humidity: " + data.daily[i].humidity + " %"; 
+        dailyHumEl.className = "forecast-text"; 
+
+        var dailyDivSub = document.createElement("div");
+        dailyDivSub.className=("daily-sub-box");
+        dailyDiv.append(dailyDivSub);
+
+        dailyDivSub.append(highEl);
+        dailyDivSub.append(lowEl); 
+        dailyDivSub.append(dailyWindEl); 
+        dailyDivSub.append(dailyHumEl);
         forecastDiv.append(dailyDiv); 
     }
-
 }
 
 searchBtn.addEventListener("click", searchCity)
