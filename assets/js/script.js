@@ -2,6 +2,13 @@ var searchColumn = document.querySelector("#leftColumn")
 var resultsContainer = document.querySelector("#resultsContainer");
 var searchInput = document.querySelector("#searchBox");
 var searchBtn = document.querySelector("#searchBtn"); 
+var resultsColumn = document.querySelector("#resultsColumn");
+var userSearch; 
+
+var dateEl = document.createElement("h3")
+dateEl.textContent = moment().format("dddd, MMMM Do YYYY");
+dateEl.className = "col-2 date-text"; 
+resultsColumn.append(dateEl);
 
 var fetchWeather = function(lat, lon) {
 fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
@@ -11,7 +18,6 @@ fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&uni
             console.log(data);
         })
     }) 
-    
 }
 
 var fetchCoor = function (city) {
@@ -21,16 +27,13 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=c3db145bc899
     })
     .then(function(data){
         fetchWeather(data[0].lat, data[0].lon)
-        console.log(data)
     })
-
 }
-
 
 var searchCity = function() {
     resultsContainer.innerHTML = "";
 
-    var userSearch = searchInput.value;
+    userSearch = searchInput.value;
     fetchCoor(userSearch);
 
     var userCity = document.createElement("h3");
@@ -42,14 +45,38 @@ var searchCity = function() {
 
     cityBox.append(userCity); 
     leftColumn.append(cityBox); 
-
 }
 
 var displayWeather = function(data) {
+    userSearch = searchInput.value; 
+
     var tempEl = document.createElement("h3");
-    tempEl.textContent=  "'s Weather: " + data.current.temp + "°F";
-    tempEl.class = "temp-text";
+    tempEl.textContent=  userSearch + "'s Current Temperature: " + data.current.temp + "°F";
+    tempEl.className = "temp-text";
     
+    var condition= data.current.weather[0].main; 
+
+    if (condition === "Clear") {
+        var sunnyEl = document.createElement("img");
+        sunnyEl.setAttribute("src", "./assets/images/sun.png"); 
+        sunnyEl.className = "weather-icon"; 
+        resultsContainer.append(sunnyEl); 
+    }
+
+    else if (condition === "Clouds") {
+        var cloudyEl = document.createElement("img");
+        cloudyEl.setAttribute("src", "./assets/images/clouds2.png"); 
+        cloudyEl.className = "weather-icon"; 
+        resultsContainer.append(cloudyEl); 
+    }
+
+    else if (condition === "Rain") {
+        var rainyEl = document.createElement("img");
+        rainyEl.setAttribute("src", "./assets/images/rain.png"); 
+        rainyEl.className = "weather-icon"; 
+        resultsContainer.append(rainyEl); 
+    }
+
     var humidityEl = document.createElement("h3")
     humidityEl.textContent = "Humidity: " + data.current.humidity + "%"; 
     humidityEl.className = "humidity-text"; 
@@ -61,7 +88,7 @@ var displayWeather = function(data) {
     var uvi = data.current.uvi;
 
     var uvBox = document.createElement("div");
-        if (uvi < 4) {
+        if (uvi < 4 || uvi === 4) {
             uvBox.className = "uv-box-fav";
         }
         else if (uvi >4 && uvi <8) {
@@ -73,7 +100,7 @@ var displayWeather = function(data) {
 
     var uvEl = document.createElement("h3");
     uvEl.textContent = "UVI: " + uvi
-    uvEl.className= "uv-text"; 
+    uvEl.className= "uvi-text"; 
     uvBox.append(uvEl); 
 
     resultsContainer.append(tempEl); 
