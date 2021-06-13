@@ -8,6 +8,6 @@ The user can click on any of the previously searched cities and render those
 respective results. 
 
 
-![alt text](assets/images/Screen1.jpg) "Starting page")
-![alt text](assets/images/Screen2.jpg) "One search")
-![alt text](assets/images/Screen3.jpg) "Many cities")
+![alt text](assets/images/Screen1.png) "Starting page")
+![alt text](assets/images/Screen2.png) "One search")
+![alt text](assets/images/Screen3.png) "Many cities")
