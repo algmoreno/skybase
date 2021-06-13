@@ -2,10 +2,10 @@ var searchColumn = document.querySelector("#leftColumn")
 var resultsContainer = document.querySelector("#resultsContainer");
 var searchInput = document.querySelector("#searchBox");
 var searchBtn = document.querySelector("#searchBtn"); 
+var cityBtn; 
 var resultsColumn = document.querySelector("#resultsColumn");
 var userSearch; 
 var dailyDiv; 
-
 var dateEl = document.createElement("h3")
 dateEl.textContent = moment().format("dddd, MMMM Do YYYY");
 dateEl.className = "col-2 date-text"; 
@@ -29,6 +29,7 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=c3db145bc899
     .then(function(data){
         fetchWeather(data[0].lat, data[0].lon)
     })
+
 }
 
 var searchCity = function() {
@@ -37,18 +38,23 @@ var searchCity = function() {
     userSearch = searchInput.value;
     fetchCoor(userSearch);
 
-    var userCity = document.createElement("h3");
-    userCity.textContent = userSearch; 
-    userCity.className = "user-city"
+    cityBtn = document.createElement("button");
+    cityBtn.textContent = userSearch; 
+    cityBtn.className = "city-btn";
 
-    var cityBox= document.createElement("div");
-    cityBox.className = "city-box";
+    leftColumn.append(cityBtn); 
 
-    cityBox.append(userCity); 
-    leftColumn.append(cityBox); 
+    prevResults(cityBtn); 
+    
+}
+
+var prevResults = function(button) {
+    resultsContainer.innerHTML = ""; 
+    button.addEventListener("click", function(event){fetchCoor(event.target.textContent)}); 
 }
 
 var displayWeather = function(data) {
+    resultsContainer.innerHTML= ""; 
     userSearch = searchInput.value; 
 
     var tempEl = document.createElement("h3");
@@ -119,7 +125,8 @@ var displayWeather = function(data) {
     var forecastDiv = document. createElement("div");
     forecastDiv.className = "forecast-box";
     resultsContainer.append(forecastDiv);
-    
+
+
     for (var i = 1; i < 6; i++) {
 
 
@@ -203,4 +210,4 @@ var displayWeather = function(data) {
     }
 }
 
-searchBtn.addEventListener("click", searchCity)
+searchBtn.addEventListener("click", searchCity);
